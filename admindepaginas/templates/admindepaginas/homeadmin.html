@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'admindepaginas/stylehomeadmin.css' %}">
+    <link rel="stylesheet" href="{% static 'admindepaginas/stylebase.css' %}">
+  </head>
+
+  <body>
+    
+    <header>
+      <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
+      <h4>Aqilah nuffa</h4>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="#">Admin</a></li>
+          <li><a href="#">Admin</a></li>
+          <li><a href="#">Admin</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#"><button>Logout</button></a>
+    </header>
+
+
+    <table class="content-table" id="tablesoal" name="table_soal">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Soal</th>
+          <th width="200px">Opsi jawaban</th>
+          <th>Kunci jawaban</th>
+          <th>Edit</th>
+        </tr> 
+      </thead>
+
+      <tbody>
+        {% for s in soal %}
+        <tr>
+          <td scope="row">{{ forloop.counter}}.</td>
+          <td>{{ s.soal }} ...</td>
+          <td>
+            {% for pilihan in s.pilihan_acak %}
+              {{ pilihan }} <br />
+            {% endfor %}
+          </td>
+          <td>{{ s.kunci_jawaban }}.</td>
+          <td>
+            {% comment %} <a href="{% url 'editsoal' %}?id={{ s.id }}">Edit</a> {% endcomment %}
+            {% comment %} <a href="{% url 'hapussoal' %}?id={{ s.id }}">Hapus</a> {% endcomment %}
+          </td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+        
+    </table>
+
+    
+  </body>
+
+</html>
