@@ -15,7 +15,14 @@ li, a, h4, button {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 16px;
-  color: #edf0f1;
+  color: #2c3e50;
+  text-decoration: none;
+  
+}
+
+.classheader {
+  color: #2c3e50;
+  font-style: bold;
   text-decoration: none;
 }
 
@@ -24,7 +31,8 @@ header {
   justify-content: flex-end;
   align-items: center;
   padding: 8px 6%;
-  background-color: #00d1b2 !important;
+  background-color: #FAF3E1;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
 }
 
 .nav_links {
@@ -44,7 +52,7 @@ header {
   color: #0088a9;
 }
 
-button {
+ button {
   margin-left: 20px;
   padding: 8px 24px;
   background-color: rgba(0, 136, 169, 1);
@@ -52,12 +60,25 @@ button {
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-}
+} 
 
-button:hover {
-  background-color: rgba(0, 136, 169, 0.8);
-}
 
 h4 {
   margin-right: auto;
+}
+
+.kirimeva {
+  font-size: 14px;
+  color: black;
+  background-color: #83c2f5;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.cancel {
+  font-size: 14px;
+  color: black;
+  border: 2px solid #83c2f5;
+  border-radius: 8px;
+  padding: 8px;
 }

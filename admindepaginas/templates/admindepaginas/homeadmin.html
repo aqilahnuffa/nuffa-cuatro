@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'admindepaginas/stylehomeadmin.css' %}">
     <link rel="stylesheet" href="{% static 'admindepaginas/stylebase.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -17,49 +21,60 @@
       <h4>Aqilah nuffa</h4>
       <nav>
         <ul class="nav_links">
-          <li><a href="#">Admin</a></li>
-          <li><a href="#">Admin</a></li>
-          <li><a href="#">Admin</a></li>
+          <li><a href="{% url 'homeadmin' %}">Admin</a></li>
+        <li><a href="{% url 'homeuser' %}">User</a></li>
+        <li><a href="{% url 'arsip' %}">Arsip</a></li>
         </ul>
       </nav>
-      <a class="cta" href="#"><button>Logout</button></a>
+      <a class="kirimeva" href="/">Logout</a>
     </header>
-
 
     <table class="content-table" id="tablesoal" name="table_soal">
       <thead>
         <tr>
-          <th>No.</th>
           <th>Soal</th>
           <th width="200px">Opsi jawaban</th>
-          <th>Kunci jawaban</th>
+          <th>Kunci </th>
           <th>Edit</th>
         </tr> 
       </thead>
 
       <tbody>
-        {% for s in soal %}
+        {% for soal in soal %}
         <tr>
-          <td scope="row">{{ forloop.counter}}.</td>
-          <td>{{ s.soal }} ...</td>
-          <td>
-            {% for pilihan in s.pilihan_acak %}
-              {{ pilihan }} <br />
-            {% endfor %}
+          <td> {{ soal.pregunta }} </td>
+          <td> {{ soal.ellecion_uno }} <br> {{ soal.ellecion_dos }} <br> {{ soal.ellecion_tres }} <br> {{ soal.ellecion_cuatro }} </td>
+          <td> {{ soal.larespuesta }} </td>
+          <td> 
+            <a href="{% url 'edit' id=soal.id %}" class="tombol">
+              Edit
+            </a>    
+            <br /> 
+            <a href="{% url 'delete' soal.id %}" class="tombol">
+              Hapus
+            </a>  
           </td>
-          <td>{{ s.kunci_jawaban }}.</td>
-          <td>
-            {% comment %} <a href="{% url 'editsoal' %}?id={{ s.id }}">Edit</a> {% endcomment %}
-            {% comment %} <a href="{% url 'hapussoal' %}?id={{ s.id }}">Hapus</a> {% endcomment %}
-          </td>
-
         </tr>
         {% endfor %}
+        <tr>
+          <td> 
+            <article>
+              <div class="div_add">
+                  
+                <a href="{% url 'addsoal' %}" class="tombol">Tambah soal</a>
+                 
+              </div>
+            </article>
+          </td>
+        </tr>  
+        
       </tbody>
+      
         
     </table>
 
     
   </body>
+
 
 </html>

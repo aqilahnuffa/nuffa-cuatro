@@ -1,12 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User</title>
-</head>
-<body>
-  <h1>this is user page</h1>
-</body>
+{% load static %}
+{% load widget_tweaks %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>userpage</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'admindepaginas/stylebase.css' %}">
+    <link rel="stylesheet" href="{% static 'userdepaginas/stylehome.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
+      <h4>Aqilah nuffa</h4>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="{% url 'homeadmin' %}" class="classheader">Admin</a></li>
+          <li><a href="{% url 'homeuser' %}" class="classheader">User</a></li>
+          <li><a href="{% url 'arsip' %}" class="classheader">Arsip</a></li>
+          <li><a href="{% url 'evaluasi' %}" class="classheader">Evaluasi</a></li>
+        </ul>
+      </nav>
+      <a class="kirimeva" href="#">Logout</a>
+    </header>
+
+    
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+
+        <h2 class="active"> Sign In </h2>
+        <h2 class="inactive underlineHover">Sign Up </h2>
+    
+        <div class="fadeIn first">
+          <img src="{% static 'admindepaginas/logo-hsi.png' %}" id="icon" alt="HSI" />
+        </div>
+    
+        <form method="post">
+          {% csrf_token %}
+
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+            {% render_field form.nama class="fadeIn second" name="login" %}
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+            
+        </form>
+    
+        <div id="formFooter">
+          <a class="underlineHover" href="#">Masukkan data login : <br /> Nama : Akhwat <br /> NIP : 007</a>
+        </div>
+    
+      </div>
+    </div>
+
+  </body>
 </html>

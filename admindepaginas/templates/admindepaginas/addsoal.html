@@ -1,0 +1,118 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>addsoal</title>
+  <link rel="stylesheet" href="{% static 'admindepaginas/styleaddsoal.css' %}">
+  <link rel="stylesheet" href="{% static 'admindepaginas/stylebase.css' %}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header> 
+    <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
+      <h4>Aqilah nuffa</h4>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="{% url 'homeadmin' %}">Admin</a></li>
+        <li><a href="{% url 'homeuser' %}">User</a></li>
+        <li><a href="{% url 'arsip' %}">Arsip</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="kirimeva">Logout</a>
+  </header>
+
+  <div class="articletanbih">
+    <article>
+      <div>
+        <h1>Tanbih</h1>
+      </div>
+    </article>
+  </div>
+
+  <div class="tambahsoal">
+    <table class="soalpertanyaan">
+      <a href="{% url 'homeadmin' %}"></a>
+        <div class="thead">
+          <h1>Isi pertanyaan baru</h1>
+        </div>
+    <form action="#" method="post">
+      {% csrf_token %}
+      <tbody>
+        <tr>
+          <td>
+            <label for="pregunta">pertanyaan</label>
+          </td>
+          <td>
+            {% render_field form.pregunta class="form-control" rows="3" %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ellecion1">Pilihan A</label>
+          </td>
+          <td>
+            {% render_field form.ellecion_uno class="form-control" rows="3" %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ellecion2">Pilihan B</label>
+          </td>
+          <td>
+            {% render_field form.ellecion_dos class="form-control" rows="3" %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ellecion3">Pilihan C</label>
+          </td>
+          <td>
+            {% render_field form.ellecion_tres class="form-control" rows="3" %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ellecion4">Pilihan D</label>
+          </td>
+          <td>
+            {% render_field form.ellecion_cuatro class="form-control" rows="3" %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="larespuesta">kunci jawaban</label>
+          </td>
+          <td>
+            {% render_field form.larespuesta %}
+          </td>
+        </tr>
+        <tr>
+          <td> 
+            <br>
+            
+              <a type="submit" class="kirimeva">Submit</a>
+            
+          </td>
+          <td>
+            
+              <a type="submit" class="cancel">Cancel</a>
+            
+          </td>
+        </tr>
+      </tbody>
+    </form>
+    </table>
+  </div>
+    
+</body>
+</html>
+

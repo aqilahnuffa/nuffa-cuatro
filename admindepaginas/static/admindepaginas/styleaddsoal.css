@@ -1,0 +1,50 @@
+.tambahsoal {
+    
+    width: 700px;
+    height: 100%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px #ccc;
+    border-collapse: collapse;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.articletanbih {
+    width: 200px;
+    height: auto;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+label {
+    float: left;
+    right: 50rem;
+}
+
+.soalpertanyaan {
+    width: 800px;
+    margin: auto;
+    padding: auto;
+    
+}
+
+.thead {
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    
+}
+
+button {
+    text-align: center;
+    padding: 16px;
+    margin: auto;
+    background-color: #83c2f5;
+    
+
+}
+
+
+

@@ -1,0 +1,55 @@
+{% comment %} halaman arsip {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'admindepaginas/stylehomeadmin.css' %}">
+    <link rel="stylesheet" href="{% static 'admindepaginas/stylebase.css' %}">
+    <link rel="stylesheet" href="{% static 'userdepaginas/stylearsip.css' %}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    
+    <header>
+      <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
+      <h4>Aqilah nuffa</h4>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="{% url 'homeadmin' %}">Admin</a></li>
+        <li><a href="{% url 'homeuser' %}">User</a></li>
+        <li><a href="{% url 'arsip' %}">Arsip</a></li>
+        </ul>
+      </nav>
+      <a class="kirimeva" href="#">Logout</a>
+    </header>
+    <br />
+
+    <div class="cardarsip">
+      {% comment %} {% with num=forloop.counter %} {% endcomment %}
+      {% for n in arsip %}
+      <div class="kotak-arsip">
+        <h3>EH-{{forloop.counter}}</h3>
+        {% if forloop.counter0|:2 %}
+          <p>{{n.pregunta}}</p>
+          <p>{{n.jawaban}}</p>
+          <p>{{n.score}}</p>
+        {% endif %}
+      </div>
+      
+      {% endfor %}
+    {% comment %} {% endwith %} {% endcomment %}
+    
+    </div>
+  </body>
+
+
+</html>

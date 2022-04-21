@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>userpage</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'admindepaginas/stylebase.css' %}">
+    <link rel="stylesheet" href="{% static 'userdepaginas/stylehasiljawaban.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
+      <h4>Aqilah nuffa</h4>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="{% url 'homeadmin' %}" class="classheader">Admin</a></li>
+          <li><a href="{% url 'homeuser' %}" class="classheader">User</a></li>
+          <li><a href="{% url 'arsip' %}" class="classheader">Arsip</a></li>
+          <li><a href="{% url 'evaluasi' %}" class="classheader">Evaluasi</a></li>
+        </ul>
+      </nav>
+      <a class="kirimeva" href="#">Logout</a>
+    </header>
+
+  <div class="cardpertanyaan">
+    <h3 style="text-align: center;">Hasil Evaluasi</h3>
+    
+    <br /> <br /> 
+    <hr />
+    <br />
+
+    <form>
+      {% for n in jawabanuser %}
+        <table>
+          <tr>
+            <td>
+              <h4>{{ forloop.counter }}. {{ n.pregunta }}...</h4>
+            </td>
+          </tr>
+          <tr> 
+            <td>
+              <p>Pilihan anda : {{ n.jawaban }}</p>
+            </td>
+          </tr>
+          <tr> 
+            <td>
+              <p>Kunci Jawaban : {{ n.larespuesta }}</p>
+            </td>
+          </tr> 
+          <tr> 
+            <td>
+              <hr />
+            </td>
+            
+        </table>
+      {% endfor %}
+
+        <table>
+          {% for i in jawabanuser%}
+          {% if forloop.counter0|divisibleby:2 %}
+            <tr>
+              <td>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Total Nilai :</p>
+              <td> {{ i.score }} </td>
+            </tr>
+          {% endif %}
+          {% endfor %}
+        </table>
+    </form>
+  </div>
+
+
+  </body>
+  </html>

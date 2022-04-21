@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'iniciopaginas',
     'admindepaginas',
     'userdepaginas',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -101,6 +102,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+from django.conf import settings
+
+settings.configure(TEMPLATE_DIRS=('basede_pagina'), DEBUG=False,
+                   TEMPLATE_DEBUG=False)
 
 
 # Internationalization

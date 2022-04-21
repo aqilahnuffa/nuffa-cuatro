@@ -1,0 +1,21 @@
+.cardarsip {
+  display: flex;
+  flex-direction: column; 
+  width: 600px;
+  min-height: auto;
+  padding: 20px;
+  border: 2px solid #00d1b2;
+  margin: auto;
+  border-radius: 6px;
+}
+
+.kotak-arsip {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: auto;
+  padding: 20px;
+  border: 2px solid #00d1b2;
+  margin: auto;
+  border-radius: 6px;
+}

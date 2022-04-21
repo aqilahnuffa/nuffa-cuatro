@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+{% comment %} halaman evaluasi {% endcomment %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User</title>
+  <link rel="stylesheet" href="{% static 'admindepaginas/stylebase.css' %}">
+  <link rel="stylesheet" href="{% static 'userdepaginas/styleuser.css' %}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
+    <h4>Aqilah nuffa</h4>
+    <nav>
+      <ul class="nav_links">
+        <li><a href="{% url 'homeadmin' %}">Admin</a></li>
+        <li><a href="{% url 'homeuser' %}">User</a></li>
+        <li><a href="{% url 'arsip' %}">Arsip</a></li>
+        <li><a href="{% url 'hasiljawaban' %}">Hasil jawaban</a></li>
+      </ul>
+    </nav>
+    <a class="kirimeva" href="#">Logout</a>
+  </header>
+  <br />
+
+  
+
+  <div class="cardpertanyaan">
+    <h3 style="text-align: center;">Halaman soal</h3>
+    <hr />
+    <br /> <br />
+
+    <form method="post">
+      {% csrf_token %}
+
+      {% for s in soal %}
+        <H4 class="pertanyaan">{{ forloop.counter}}. {{ s.pregunta }} ...</H4>
+        <br /> 
+        <ul class="ul-soal">
+          {% with num=forloop.counter %}
+
+          <li>
+            <label>
+              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="A"/>
+              {{ s.ellecion_uno }}<br /> 
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="B"/>
+              {{ s.ellecion_dos }}<br /> 
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="C"/>
+              {{ s.ellecion_tres }}<br /> 
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="D"/>
+              {{ s.ellecion_cuatro }}<br /> 
+            </label>
+          </li>
+          <br />
+          <hr />
+  
+          {% endwith %}
+          
+
+        </ul>
+        <input type="hidden" name="Akhwat" value="{{ s.peserta }}">
+        <input type="hidden" name="key{{ forloop.counter }}" value="{{ s.larespuesta }}">
+        <input type="hidden" name="soal{{ forloop.counter }}" value="{{ s.pregunta}}">
+        <input type="hidden" name="pilihan1{{ forloop.counter }}" value="{{ s.ellecion_uno }}">
+        <input type="hidden" name="pilihan2{{ forloop.counter }}" value="{{ s.ellecion_dos }}">
+        <input type="hidden" name="pilihan3{{ forloop.counter }}" value="{{ s.ellecion_tres }}">
+        <input type="hidden" name="pilihan4{{ forloop.counter }}" value="{{ s.ellecion_cuatro }}">
+        <input type="hidden" name="nilai{{ forloop.counter }}" value="{{ s.score }}">
+        <br />
+        {% endfor %}
+        {% for s in jawabanuser %}
+          <tr>
+            <td> {{ s.score }} </td>
+          </tr>
+          <tr>
+        {% endfor %}
+            <td>
+              <button type="submit" class="kirimeva">Submit</button>
+            </td>
+          </tr>
+    </form>
+    
+  </div>
+</body>
+</html>

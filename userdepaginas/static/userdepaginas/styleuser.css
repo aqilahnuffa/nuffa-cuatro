@@ -1,0 +1,52 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  background-color: #FAF3E1;
+}
+
+hr {
+  color: #00d1b2;
+}
+
+.artikel {
+  width: 200px;
+}
+
+.cardpertanyaan{
+  width: 400px;
+  border-radius: 18px;
+  padding: 20px;
+  margin: auto;
+  left: 600px;
+  border: 2px solid #00d1b2 !important;
+  
+}
+
+label {
+  font-size: 14px;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.pertanyaan {
+  font-size: 18px;
+  color: black;
+}
+
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.kirimeva {
+  font-size: 14px;
+  color: black;
+  background-color: #83c2f5;
+  border-radius: 8px;
+  padding: 8px;
+}
+
