@@ -3,6 +3,7 @@ img {
   width: 50px;
   height: 50px;
   margin-right: auto;
+  border-radius: 18px;
 }
 
 * {
@@ -13,11 +14,21 @@ img {
 
 li, a, h4, button {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  color: #2c3e50;
-  text-decoration: none;
   
+  font-size: 16px;
+  color: #A2B38B;
+  text-decoration: none;
+  font-style: bold;
+  
+}
+
+.nav_h {
+  font-family: 'Montserrat', sans-serif;
+  
+  font-size: 16px;
+  color: #FAFDD6;
+  text-decoration: none;
+  font-style: bold;
 }
 
 .classheader {
@@ -27,32 +38,18 @@ li, a, h4, button {
 }
 
 header {
+  width: 100%;
+  position: fixed;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 8px 6%;
-  background-color: #FAF3E1;
+  background-color: #E4E9BE;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
 }
 
-.nav_links {
-  list-style: none;
-}
 
-.nav_links li {
-  display: inline-block;
-  padding: 0px 20px;
-}
-
-.nav_links li a {
-  transition: all 0.3s ease 0s;
-}
-
-.nav_links li a:hover {
-  color: #0088a9;
-}
-
- button {
+button {
   margin-left: 20px;
   padding: 8px 24px;
   background-color: rgba(0, 136, 169, 1);
@@ -61,10 +58,20 @@ header {
   cursor: pointer;
   transition: all 0.3s ease 0s;
 } 
-
+label {
+  margin-left: 10px;
+}
 
 h4 {
   margin-right: auto;
+}
+
+h1 {
+  margin-right: auto;
+  font-size: 24px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid gray;
+  padding: 8px;
 }
 
 .kirimeva {
@@ -81,4 +88,134 @@ h4 {
   border: 2px solid #83c2f5;
   border-radius: 8px;
   padding: 8px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 5px 5px 5px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.kotak-button {
+  margin-top: 20px;
+}
+
+.tambahsoal {
+  margin-top: 40px;
+}
+
+
+/* Mengatur dropdown menu */
+
+.nav_links ul {
+  display: block;
+  margin: 0px 20px;
+  padding: 5px;
+  float: right;
+}
+
+.nav_links ul li {
+  list-style: none;
+  display: inline-block;
+  
+}
+
+.nav_links ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  
+}
+
+.nav_links ul li a:hover {
+  display: block;
+
+}
+
+.nav_links .dropdown {
+  display: none;
+}
+
+.nav_links:hover .dropdown {
+  display: block;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background: #E4E9BE;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.nav_links:hover .dropdown li {
+  display: block;
+}
+
+.nav_links:hover .dropdown li a {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.nav_links:hover .dropdown li a:hover {
+  background: #A2B38B;
+  color: #E4E9BE;
+
+}
+
+/* style menu profile */
+
+.nav_links_p {
+  display: block;
+  margin: 0px 20px;
+  padding: 5px;
+  float: right;
+}
+
+.nav_links_p img {
+  list-style: none;
+  display: inline-block;
+  
+}
+
+.nav_links_p img li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  
+}
+
+.nav_links img:hover {
+  display: block;
+
+}
+
+.nav_links .dropdown {
+  display: none;
+}
+
+.nav_links:hover .dropdown {
+  display: block;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background: #E4E9BE;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.nav_links:hover .dropdown li {
+  display: block;
+}
+
+.nav_links:hover .dropdown li a {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.nav_links:hover .dropdown li a:hover {
+  background: #A2B38B;
+  color: #E4E9BE;
+
 }

@@ -15,38 +15,96 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
   </head>
 
   <body>
     
     <header>
-      <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
-      <h4>Aqilah nuffa</h4>
-      <nav>
-        <ul class="nav_links">
-          <li><a href="{% url 'homeadmin' %}">Admin</a></li>
-        <li><a href="{% url 'homeuser' %}">User</a></li>
-        <li><a href="{% url 'arsip' %}">Arsip</a></li>
+      <img src="{% static 'admindepaginas/avatar_profile.jpg' %}" alt="HSI">
+      <h4>Halaman Peserta | Arsip </h4>
+      <nav class="nav_links">
+        <ul>
+
+          <li><a href="">Peserta</a></li>
+            <ul class="dropdown">
+              <li><a href="{% url 'evaluasi' %}" >Evaluasi</a></li>
+              <li><a href="{% url 'arsip' %}" >Arsip</a></li>
+              <li> <a class="kirimeva" href="/">Logout</a></li>
+            </ul>
+
         </ul>
       </nav>
-      <a class="kirimeva" href="#">Logout</a>
+     
     </header>
     <br />
 
     <div class="cardarsip">
-      {% comment %} {% with num=forloop.counter %} {% endcomment %}
-      {% for n in arsip %}
+
+      {% for n in arsip_item %}
       <div class="kotak-arsip">
         <h3>EH-{{forloop.counter}}</h3>
-        {% if forloop.counter0|:2 %}
-          <p>{{n.pregunta}}</p>
-          <p>{{n.jawaban}}</p>
-          <p>{{n.score}}</p>
+        <hr /><br />
+
+        {% for item in n %}
+          <strong>{{forloop.counter}}. {{item.pregunta}}</strong>
+
+
+            <p class="correcta">Jawaban : 
+              {% if item.jawaban == item.larespuesta %}
+
+                {% if item.jawaban == 'A' %}
+                  A. {{ item.soal.ellecion_uno }} <i class="las la-check"></i>
+
+                {% elif item.jawaban == 'B' %}
+                  B. {{ item.soal.ellecion_dos }} <i class="las la-check"></i>
+
+                {% elif item.jawaban == 'C' %}
+                  C. {{ item.soal.ellecion_tres }} <i class="las la-check"></i>
+
+                {% elif item.jawaban == 'D' %}
+                  D. {{ item.soal.ellecion_cuatro }} <i class="las la-check"></i>
+                
+                {% else %}
+                  -Tidak Ada Data-
+                {% endif %}
+
+              {% else %}
+              
+                {% if item.jawaban == 'A' %}
+                  A. {{ item.soal.ellecion_uno }} <i class="las la-times"></i>
+
+                {% elif item.jawaban == 'B' %}
+                  B. {{ item.soal.ellecion_dos }} <i class="las la-times"></i>
+                
+                {% elif item.jawaban == 'C' %}
+                  C. {{ item.soal.ellecion_tres }} <i class="las la-times"></i>
+
+                {% elif item.jawaban == 'D' %}
+                  D. {{ item.soal.ellecion_cuatro }} <i class="las la-times"></i>
+                
+                {% else %}
+                  -Tidak Ada Data-
+
+                {% endif %}
+                
+              {% endif %}
+            </p>
+
+          
+          <p class="correct">Jawaban benar : {{item.larespuesta}}</p>
+          <br />
+        {% endfor %}
+
+        {% for item in n %}
+        {% if forloop.counter0|divisibleby:2 %}
+        <hr />
+        <p>Nilai anda : {{item.score}}</p>
         {% endif %}
+        {% endfor %}
       </div>
       
       {% endfor %}
-    {% comment %} {% endwith %} {% endcomment %}
     
     </div>
   </body>

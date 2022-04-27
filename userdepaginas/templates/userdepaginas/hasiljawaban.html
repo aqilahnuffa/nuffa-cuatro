@@ -17,77 +17,90 @@
   </head>
 
   <body>
+
     <header>
-      <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
-      <h4>Aqilah nuffa</h4>
-      <nav>
-        <ul class="nav_links">
-          <li><a href="{% url 'homeadmin' %}" class="classheader">Admin</a></li>
-          <li><a href="{% url 'homeuser' %}" class="classheader">User</a></li>
-          <li><a href="{% url 'arsip' %}" class="classheader">Arsip</a></li>
-          <li><a href="{% url 'evaluasi' %}" class="classheader">Evaluasi</a></li>
+      <img src="{% static 'admindepaginas/avatar_profile.jpg' %}" alt="HSI">
+      <h4>Halaman Peserta | Evaluasi</h4>
+      <nav class="nav_links">
+        <ul>
+  
+          <li><a href="">Peserta</a></li>
+            <ul class="dropdown">
+              <li><a href="{% url 'evaluasi' %}" >Evaluasi</a></li>
+              <li><a href="{% url 'arsip' %}" >Arsip</a></li>
+              <li> <a class="kirimeva" href="/">Logout</a></li>
+            </ul>
+  
         </ul>
       </nav>
-      <a class="kirimeva" href="#">Logout</a>
+     
     </header>
-
-  <div class="cardpertanyaan">
-    <h3 style="text-align: center;">Hasil Evaluasi</h3>
-    
-    <br /> <br /> 
-    <hr />
     <br />
 
-    <form>
-      {% for n in jawabanuser %}
-        <table>
-          <tr>
-            <td>
-              <h4>{{ forloop.counter }}. {{ n.pregunta }}...</h4>
-            </td>
-          </tr>
-          <tr> 
-            <td>
-              <p>Pilihan anda : {{ n.jawaban }}</p>
-            </td>
-          </tr>
-          <tr> 
-            <td>
-              <p>Kunci Jawaban : {{ n.larespuesta }}</p>
-            </td>
-          </tr> 
-          <tr> 
-            <td>
-              <hr />
-            </td>
-            
-        </table>
-      {% endfor %}
+    
 
-        <table>
-          {% for i in jawabanuser%}
-          {% if forloop.counter0|divisibleby:2 %}
+    <div class="card-pertanyaan">
+      <h3 style="text-align: center;">Hasil Evaluasi</h3>
+      
+      <br /> <br /> 
+      <hr />
+      <br />
+  
+      <form>
+        {% for n in jawabanuser %}
+          <table>
             <tr>
               <td>
-                <br />
+                <h4>{{ forloop.counter }}. {{ n.pregunta }}...</h4>
               </td>
             </tr>
-            <tr>
+            <tr> 
+              <td>
+                <p>Pilihan anda : {{ n.jawaban }}</p>
+              </td>
+            </tr>
+            <tr> 
+              <td>
+                <p>Kunci Jawaban : {{ n.larespuesta }}</p>
+              </td>
+            </tr> 
+            <tr> 
               <td>
                 <hr />
               </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Total Nilai :</p>
-              <td> {{ i.score }} </td>
-            </tr>
-          {% endif %}
-          {% endfor %}
-        </table>
-    </form>
-  </div>
-
+              
+          </table>
+        {% endfor %}
+  
+          <table>
+            {% for i in jawabanuser%}
+            {% if forloop.counter0|divisibleby:2 %}
+              <tr>
+                <td>
+                  <br />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <hr />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Total Nilai :</p>
+                <td> {{ i.score }} </td>
+              </tr>
+            {% endif %}
+            {% endfor %}
+          </table>
+          <br />
+      </form>
+      <div>
+        <a href="{% url 'arsip' %}" class="kirimeva">Lihat Seluruh Hasil Evaluasi</a>
+      </div>
+    </div>
+  
+  
 
   </body>
   </html>

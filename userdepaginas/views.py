@@ -1,3 +1,6 @@
+
+from operator import is_
+from django.contrib import messages
 from multiprocessing import context
 from os import stat
 from django.http import HttpResponse
@@ -28,28 +31,31 @@ def evaluasi(request):
 
     if request.method == 'POST':
         data=request.POST
+      
         if data['choice1'] == data['key1']:
-            stat1=True  
-            score1=2
+            is_true = True  
+            score1 = 2
         
         else:
-            stat1=False
-            score1=1
+            is_true = False
+            score1 = 1
             
 
         if data['choice2'] == data['key2']:
-            stat2=True
+            is_true = True
             score2=2
            
         else:
-            stat2=False
+            is_true = False
             score2=1
            
         Totalscore=score1+score2
         
+           
+        
 
-        ret=Jawabanpeserta.objects.create(idEH=data[''], pregunta=data['soal1'], nama=data['Akhwat'], jawaban=data['choice1'], larespuesta=data['key1'], score1=score1, score=Totalscore )
-        ret=Jawabanpeserta.objects.create(pregunta=data['soal2'], nama=data['Akhwat'], jawaban=data['choice2'], larespuesta=data['key2'], score2=score2, score=Totalscore )
+        ret=Jawabanpeserta.objects.create(idEH='', pregunta=data['soal1'], nama=data['Akhwat'], jawaban=data['choice1'], larespuesta=data['key1'], score1=score1, score=Totalscore, is_true=is_true) 
+        ret=Jawabanpeserta.objects.create(idEH='', pregunta=data['soal2'], nama=data['Akhwat'], jawaban=data['choice2'], larespuesta=data['key2'], score2=score2, score=Totalscore, is_true=is_true )
         return redirect('hasiljawaban')
     return render(request, 'userdepaginas/evaluasi.html')
 
@@ -66,12 +72,19 @@ def hasiljawaban(request):
 
 def arsip(request):
     arsip = Jawabanpeserta.objects.all()
+    soal = Soal.objects.all()
+    
+    arsip_item = []
+    for i in range(0, len(arsip), 2):
 
+      arsip_item.append(arsip[i:i+2])
+    
     context = {
-        'arsip': arsip   
+        'arsip': arsip, 
+        'arsip_item': arsip_item,
+        'soal': soal
     }
     return render(request, 'userdepaginas/arsip.html', context)
-
 
 def peserta(request):
     peserta = Peserta.objects.all()

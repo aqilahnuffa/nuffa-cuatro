@@ -18,17 +18,21 @@
 </head>
 <body>
   <header>
-    <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
-    <h4>Aqilah nuffa</h4>
-    <nav>
-      <ul class="nav_links">
-        <li><a href="{% url 'homeadmin' %}">Admin</a></li>
-        <li><a href="{% url 'homeuser' %}">User</a></li>
-        <li><a href="{% url 'arsip' %}">Arsip</a></li>
-        <li><a href="{% url 'hasiljawaban' %}">Hasil jawaban</a></li>
+    <img src="{% static 'admindepaginas/avatar_profile.jpg' %}" alt="HSI">
+    <h4>Halaman Peserta | Evaluasi</h4>
+    <nav class="nav_links">
+      <ul>
+
+        <li><a href="">Peserta</a></li>
+          <ul class="dropdown">
+            <li><a href="{% url 'evaluasi' %}" >Evaluasi</a></li>
+            <li><a href="{% url 'arsip' %}" >Arsip</a></li>
+            <li> <a class="kirimeva" href="/">Logout</a></li>
+          </ul>
+
       </ul>
     </nav>
-    <a class="kirimeva" href="#">Logout</a>
+   
   </header>
   <br />
 
@@ -50,25 +54,25 @@
 
           <li>
             <label>
-              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="A"/>
+              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="A" required/>
               {{ s.ellecion_uno }}<br /> 
             </label>
           </li>
           <li>
             <label>
-              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="B"/>
+              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="B" required/>
               {{ s.ellecion_dos }}<br /> 
             </label>
           </li>
           <li>
             <label>
-              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="C"/>
+              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="C" required/>
               {{ s.ellecion_tres }}<br /> 
             </label>
           </li>
           <li>
             <label>
-              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="D"/>
+              <input type="radio" name="choice{{ forloop.counter }}" id="pilihan{{ forloop.counter }}" value="D" required/>
               {{ s.ellecion_cuatro }}<br /> 
             </label>
           </li>

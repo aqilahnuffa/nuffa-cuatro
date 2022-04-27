@@ -7,6 +7,7 @@
   border: 2px solid #00d1b2;
   margin: auto;
   border-radius: 6px;
+  margin-top: 80px;
 }
 
 .kotak-arsip {
@@ -18,4 +19,17 @@
   border: 2px solid #00d1b2;
   margin: auto;
   border-radius: 6px;
+}
+
+p {
+  padding: 4px;
+}
+
+correct {
+  color: green;
+  font-style: bold;
+}
+
+wrong {
+  color: red;
 }

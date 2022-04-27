@@ -17,26 +17,24 @@
 </head>
 <body>
 
-  <header> 
-    <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
-      <h4>Aqilah nuffa</h4>
-      <nav>
-        <ul class="nav_links">
-          <li><a href="{% url 'homeadmin' %}">Admin</a></li>
-        <li><a href="{% url 'homeuser' %}">User</a></li>
-        <li><a href="{% url 'arsip' %}">Arsip</a></li>
-        </ul>
-      </nav>
-      <a href="#" class="kirimeva">Logout</a>
+  <header>
+    <img src="{% static 'admindepaginas/avatar_profile.jpg' %}" alt="HSI">
+    <h4>Halaman Admin | Tambah Soal</h4>
+    <nav class="nav_links">
+      <ul>
+
+        <li><a href="">Admin</a></li>
+          <ul class="dropdown">
+            <li><a href="{% url 'homeadmin' %}" >Bank Soal</a></li>
+            <li><a href="{% url 'arsip' %}" >Arsip</a></li>
+            <li> <a class="kirimeva" href="/">Logout</a></li>
+          </ul>
+
+      </ul>
+    </nav>
+   
   </header>
 
-  <div class="articletanbih">
-    <article>
-      <div>
-        <h1>Tanbih</h1>
-      </div>
-    </article>
-  </div>
 
   <div class="tambahsoal">
     <table class="soalpertanyaan">
@@ -49,63 +47,64 @@
       <tbody>
         <tr>
           <td>
-            <label for="pregunta">pertanyaan</label>
+            <label for="pregunta">pertanyaan :</label>
           </td>
           <td>
-            {% render_field form.pregunta class="form-control" rows="3" %}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="ellecion1">Pilihan A</label>
-          </td>
-          <td>
-            {% render_field form.ellecion_uno class="form-control" rows="3" %}
+            {% render_field form.pregunta placeholder="Masukkan pertanyaan" class="form" rows="3" %}
           </td>
         </tr>
         <tr>
           <td>
-            <label for="ellecion2">Pilihan B</label>
+            <label for="ellecion1">Pilihan A :</label>
           </td>
           <td>
-            {% render_field form.ellecion_dos class="form-control" rows="3" %}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="ellecion3">Pilihan C</label>
-          </td>
-          <td>
-            {% render_field form.ellecion_tres class="form-control" rows="3" %}
+            {% render_field form.ellecion_uno placeholder="Masukkan pilihan A" class="form" rows="2" %}
           </td>
         </tr>
         <tr>
           <td>
-            <label for="ellecion4">Pilihan D</label>
+            <label for="ellecion2">Pilihan B :</label>
           </td>
           <td>
-            {% render_field form.ellecion_cuatro class="form-control" rows="3" %}
+            {% render_field form.ellecion_dos placeholder="Masukkan pilihan B" class="form" rows="2" %}
           </td>
         </tr>
         <tr>
           <td>
-            <label for="larespuesta">kunci jawaban</label>
+            <label for="ellecion3">Pilihan C :</label>
+          </td>
+          <td>
+            {% render_field form.ellecion_tres placeholder="Masukkan pilihan C" class="form" rows="2" %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ellecion4">Pilihan D :</label>
+          </td>
+          <td>
+            {% render_field form.ellecion_cuatro placeholder="Masukkan pilihan C" class="form" rows="2" %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="larespuesta">kunci jawaban :</label>
           </td>
           <td>
             {% render_field form.larespuesta %}
           </td>
         </tr>
         <tr>
+          <td></td>
           <td> 
-            <br>
-            
-              <a type="submit" class="kirimeva">Submit</a>
-            
-          </td>
-          <td>
-            
-              <a type="submit" class="cancel">Cancel</a>
-            
+            <div class="kotak-button">
+              <br>
+              <button class="kirimeva" style="float: left;">
+                <a type="submit">Submit</a>
+              </button>
+              <button class="kirimeva" style="float: left;">
+                <a href="{% url 'homeadmin' %}">Cancel</a>
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>

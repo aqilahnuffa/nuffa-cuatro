@@ -17,42 +17,35 @@
 
   <body>
     <header>
-      <img src="{% static 'admindepaginas/logo-hsi.png' %}" alt="HSI">
-      <h4>Aqilah nuffa</h4>
-      <nav>
-        <ul class="nav_links">
-          <li><a href="{% url 'homeadmin' %}" class="classheader">Admin</a></li>
-          <li><a href="{% url 'homeuser' %}" class="classheader">User</a></li>
-          <li><a href="{% url 'arsip' %}" class="classheader">Arsip</a></li>
-          <li><a href="{% url 'evaluasi' %}" class="classheader">Evaluasi</a></li>
+      <img src="{% static 'admindepaginas/avatar_profile.jpg' %}" alt="HSI">
+      <h4>Halaman Peserta | Home</h4>
+      <nav class="nav_links">
+        <ul>
+  
+          <li><a href="">Peserta</a></li>
+            <ul class="dropdown">
+              <li><a href="{% url 'evaluasi' %}" >Evaluasi</a></li>
+              <li><a href="{% url 'arsip' %}" >Arsip</a></li>
+              <li> <a class="kirimeva" href="/">Logout</a></li>
+            </ul>
+  
         </ul>
       </nav>
-      <a class="kirimeva" href="#">Logout</a>
+     
     </header>
 
     
     <div class="wrapper fadeInDown">
       <div id="formContent">
-
-        <h2 class="active"> Sign In </h2>
-        <h2 class="inactive underlineHover">Sign Up </h2>
     
         <div class="fadeIn first">
-          <img src="{% static 'admindepaginas/logo-hsi.png' %}" id="icon" alt="HSI" />
+          <img src="{% static 'userdepaginas/hsi-login.png' %}" id="icon" alt="HSI" />
         </div>
-    
-        <form method="post">
-          {% csrf_token %}
-
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            {% render_field form.nama class="fadeIn second" name="login" %}
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
-            
-        </form>
-    
+        
         <div id="formFooter">
-          <a class="underlineHover" href="#">Masukkan data login : <br /> Nama : Akhwat <br /> NIP : 007</a>
+          <button type="submit" class="kirimeva">
+            <a href="{% url 'evaluasi' %}" class="login-a">Kerjakan Evaluasi</a>
+          </button>
         </div>
     
       </div>

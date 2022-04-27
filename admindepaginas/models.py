@@ -4,13 +4,17 @@ from datetime import date
 # Create your models here.
 
 class Soal(models.Model):
-    idEH = models.CharField(max_length=50, default='')
+    ANS = (
+        ('A', 'A'), ('B', 'B'), 
+        ('C', 'C'), ('D', 'D')
+    )
+    
     pregunta = models.TextField()
     ellecion_uno = models.TextField()
     ellecion_dos = models.TextField()
     ellecion_tres = models.TextField()
     ellecion_cuatro = models.TextField()
-    ANS = (('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D'))
+    
     larespuesta = models.CharField(max_length=1, null=True, choices=ANS)
 
     def __str__(self):
@@ -25,13 +29,14 @@ class Peserta(models.Model):
 
 
 class Jawabanpeserta(models.Model):
+    idEH = models.CharField(max_length=50, default='')
     score = models.IntegerField(default=0)
     score1 = models.IntegerField(default=0)
     score2 = models.IntegerField(default=0) 
-    
     pregunta=models.TextField()
     nama=models.TextField()
-    jawaban = models.TextField()
+    is_true = models.BooleanField(default=False)
+    jawaban = models.CharField(max_length=1)
     larespuesta = models.CharField(max_length=1, null=True)
 
     def __str__(self):
